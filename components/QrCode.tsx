@@ -4,10 +4,8 @@ import QRCode from 'react-native-qrcode-svg'
 
 const QrCode = () => {
   return (
-    <View style={styles.bodystails}>
-          <View style={styles.qrCodeStyle}>
-            <QRCode value="https://github.com/adhernea" />
-          </View>
+    <View style={styles.qrCodeStyle}>
+      <QRCode value="https://github.com/adhernea" />
     </View>
   )
 }
@@ -15,14 +13,7 @@ const QrCode = () => {
 export default QrCode
 
 const styles = StyleSheet.create({
-    bodystails: {
-        width: "100%",
-        borderWidth: 2,
-        borderColor: "black",
-        alignItems: "center",
-        justifyContent: "space-between",
-        height: "85%",
-      },
+    
     qrCodeStyle: {
         justifyContent: "center",
         borderWidth: 1,
