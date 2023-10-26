@@ -11,10 +11,10 @@ const Header = (props: HeaderProps) => {
         <View style={styles.topContainer}>
             <Text style={styles.titleHeader}>My Portfolio App</Text>
             <View style={styles.navbarContainer}>
-              <Pressable style={styles.buttonruta} onPress={() => setDisplayMyQR(true)}>
+              <Pressable style={styles.subHeaderButtons} onPress={() => setDisplayMyQR(true)}>
                 <Text style={styles.shadoxboxing}>Mi info</Text>
               </Pressable>
-              <Pressable style={styles.buttonruta} onPress={() => setDisplayMyQR(false)}>
+              <Pressable style={styles.subHeaderButtons} onPress={() => setDisplayMyQR(false)}>
                 <Text style = {styles.shadoxboxing}>Mi repo</Text>
               </Pressable>
             </View>
@@ -23,7 +23,6 @@ const Header = (props: HeaderProps) => {
 }
 
 export default Header
-
 const styles = StyleSheet.create({
     topContainer: {
         height: '15%',
@@ -44,7 +43,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         justifyContent: "space-between"
       },
-      buttonruta: {
+      subHeaderButtons: {
         width:'50%',
       },
       shadoxboxing: {

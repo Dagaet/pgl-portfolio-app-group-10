@@ -12,7 +12,7 @@ export default function App() {
       {displayMyQR ? (
         <MainPage/>
       ) : (
-        <View style={styles.bodystails}>
+        <View style={styles.qrStyles}>
           <QRCode/>
         </View>    
       )}
@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
-  bodystails: {
+  qrStyles: {
     width: "100%",
     borderWidth: 2,
     borderColor: "black",

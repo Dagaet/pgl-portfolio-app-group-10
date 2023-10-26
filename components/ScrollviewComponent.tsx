@@ -1,21 +1,15 @@
 import { ScrollView, StyleSheet, Text, View } from 'react-native'
 import React from 'react'
+import { peopleData, PersonalData } from '../data/InformationData'
 
 const ScrollviewComponent = () => {
+
   return (
-        <ScrollView style={{padding: 10}}>
-            <Text style={styles.textStyles}>Salir a pasear</Text>
-            <Text style={styles.textStyles}>Senderismo</Text>
-            <Text style={styles.textStyles}>Ir a la playita</Text>
-            <Text style={styles.textStyles}>Domingos de misa</Text>
-            <Text style={styles.textStyles}>La guitarrita</Text>
-            <Text style={styles.textStyles}>El monte con lluvia</Text>
-            <Text style={styles.textStyles}>Viajar</Text>
-            <Text style={styles.textStyles}>Música variadita</Text>
-            <Text style={styles.textStyles}>Anime</Text>
-            <Text style={styles.textStyles}>Ducharme</Text>
-            <Text style={styles.textStyles}>Videojuegos</Text>
-            <Text style={styles.textStyles}>Ir de cenar romántica</Text>
+        <ScrollView style={styles.scrollViewStyle}>
+            {
+              peopleData.map((info: PersonalData, index: number) => 
+                <Text key={index} style={styles.textStyles}>{info.data}</Text>)
+            }
         </ScrollView>
   )
 }
@@ -34,5 +28,8 @@ const styles = StyleSheet.create({
         fontStyle: 'italic',
         fontSize: 16,
         backgroundColor: 'silver'
-      }
+      },
+    scrollViewStyle: {
+        padding: 10
+    }
 })
