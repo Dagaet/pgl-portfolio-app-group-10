@@ -8,7 +8,7 @@ export default function App() {
   const [displayMyQR, setDisplayMyQR] = useState(true);
   return (
     <View style={styles.container}>
-      <Header setDisplayMyQR={setDisplayMyQR} />
+      <Header/>
       {displayMyQR ? (
         <MainPage/>
       ) : (

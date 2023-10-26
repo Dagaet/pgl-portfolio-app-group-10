@@ -1,41 +1,22 @@
+import { ImageProps } from "react-native"
+
 export type PersonalData = {
-    data: string,
+    personalImage: ImageProps,
+    name: string,
+    iconsUrls: ImageProps[],
+    info: string
 }
 export const peopleData: PersonalData[] = [
     {
-        data: 'Salir a pasear'
+        personalImage: require('../assets/SaulEn20Anos.jpg'),
+        name: 'Saúl Arteaga Noda',
+        iconsUrls: [require('../assets/SaulEn20Anos.jpg'), require('../assets/favicon.png')],
+        info: 'Me gustan los gatos'
     },
     {
-        data: 'Senderismo'
-    },
-    { 
-        data: 'Ir a la playita'
-    },
-    {
-        data: 'Domingos de misa'
-    },
-    {
-        data: 'La guitarrita'
-    },
-    {
-        data: 'El monte con lluvia'
-    },
-    {
-        data: 'Viajar'
-    },
-    {
-        data: 'Música variadita'
-    },
-    {
-        data: 'Anime'
-    },
-    {
-        data: 'Ducharme'
-    },
-    {
-        data: 'Videojuegos'
-    },
-    {
-        data: 'Ir de cena romántica'
+        personalImage: require('../assets/SaulEn20Anos.jpg'),
+        name: 'Gabriel',
+        iconsUrls: [require('../assets/SaulEn20Anos.jpg'), require('../assets/favicon.png')],
+        info: 'Hola'
     }
 ]
