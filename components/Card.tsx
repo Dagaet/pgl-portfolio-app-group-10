@@ -1,14 +1,12 @@
 import { ImageProps, StyleSheet, Text, View, Image, Modal, Pressable, TouchableOpacity, Linking } from "react-native";
 import React, { useState } from "react";
 import QRCode from "react-native-qrcode-svg";
-
 type CardProps = {
   personalImage: ImageProps;
   name: string;
   iconsUrls: ImageProps[];
   info: string;
 };
-
 const Card = (props: CardProps) => {
   const { personalImage, name, iconsUrls, info,} = props;
   const  [isModalVisible1, setModalVisible1] = useState(false);
@@ -29,7 +27,6 @@ const Card = (props: CardProps) => {
   const openLink = (url: string) => {
     Linking.openURL(url);
   }
-
   return (
     <View style={styles.cardContainer}>
       <View style={styles.cardTitleContainer}>
@@ -96,9 +93,7 @@ const Card = (props: CardProps) => {
     </View>
   );
 };
-
 export default Card;
-
 const styles = StyleSheet.create({
   cardContainer: {
     flex: 1,
@@ -113,8 +108,6 @@ const styles = StyleSheet.create({
     marginVertical: 30,
     marginHorizontal: 15,
     borderWidth: 1,
-
-
     shadowColor: "#000",
     shadowOffset: {
       width: 0,
@@ -124,7 +117,6 @@ const styles = StyleSheet.create({
     shadowRadius: 9.51,
     elevation: 25,
   },
-
   personalImage: {
     height: 200,
     width: 200,
@@ -146,13 +138,9 @@ const styles = StyleSheet.create({
     height: 120,
     margin: 10,
   },
-
-
   buttonContainer:{
     flexDirection:"row"
   },
-
-
   button:{
     borderRadius: 20,
     padding:10,
@@ -161,14 +149,11 @@ const styles = StyleSheet.create({
     buttonOpen: {
       backgroundColor: "#F194FF"
   },
-
   textStyle:{
     color: "white",
     fontWeight: "bold",
     textAlign: "center"
   },
-
-
   buttonText: {
     color: "white",
     fontWeight: "bold",
@@ -181,7 +166,6 @@ const styles = StyleSheet.create({
   buttonClose: {
     backgroundColor:"#F194FF"
   },
-
   modalView: {
     margin: 20,
     backgroundColor: "white",
@@ -212,9 +196,7 @@ const styles = StyleSheet.create({
     height: 50, 
     borderRadius: 50
   },
-
   qr:{
     bottom: 10
   }
-
 });
