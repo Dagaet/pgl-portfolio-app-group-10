@@ -5,7 +5,7 @@ import QRCode from 'react-native-qrcode-svg'
 const QrCode = () => {
   return (
     <View style={styles.qrCodeStyle}>
-      <QRCode value="https://github.com/adhernea" />
+      <QRCode value="https://github.com/" />
     </View>
   )
 }

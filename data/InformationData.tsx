@@ -7,16 +7,18 @@ export type PersonalData = {
     info: string
 }
 export const peopleData: PersonalData[] = [
-    {
+    {   
+        
         personalImage: require('../assets/SaulEn20Anos.jpg'),
         name: 'Saúl Arteaga Noda',
         iconsUrls: [require('../assets/SaulEn20Anos.jpg'), require('../assets/favicon.png')],
-        info: 'Me gustan los gatos'
+        info: ''
+        
     },
     {
-        personalImage: require('../assets/SaulEn20Anos.jpg'),
-        name: 'Gabriel',
+        personalImage: require('../assets/Profile.jpg'),
+        name: 'Gabriel Díaz',
         iconsUrls: [require('../assets/SaulEn20Anos.jpg'), require('../assets/favicon.png')],
-        info: 'Hola'
+        info: ''
     }
 ]

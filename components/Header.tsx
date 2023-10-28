@@ -12,7 +12,7 @@ const Header = () => {
 export default Header
 const styles = StyleSheet.create({
     topContainer: {
-        backgroundColor: "#6D7275",
+        backgroundColor: "black",
         height: "15%",
         paddingTop: 75,
         width: '100%',
