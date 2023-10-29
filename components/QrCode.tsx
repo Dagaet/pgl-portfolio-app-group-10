@@ -1,11 +1,11 @@
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 import React from 'react'
 import QRCode from 'react-native-qrcode-svg'
 
 const QrCode = () => {
   return (
     <View style={styles.qrCodeStyle}>
-      <QRCode value="https://github.com/" />
+      <QRCode value="https://github.com/Dagaet/pgl-portfolio-app-group-10" />
     </View>
   )
 }
