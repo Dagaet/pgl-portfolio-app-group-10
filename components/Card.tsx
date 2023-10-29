@@ -13,7 +13,7 @@ const Card = (props: CardProps) => {
       <View style={styles.cardTitleContainer}>
         <Image style={styles.personalImage} source={personalImage} />
         <Text style={styles.cardTitleText}>{name}</Text>
-        <Text> {info} </Text>
+        <Text style={styles.textStyle}> {info} </Text>
           <ModalComponent/>
       </View>
     </View>
@@ -78,7 +78,9 @@ const styles = StyleSheet.create({
   textStyle:{
     color: "white",
     fontWeight: "bold",
-    textAlign: "center"
+    textAlign: "center",
+    paddingTop: 40,
+    paddingBottom: 50
   },
   buttonText: {
     color: "white",

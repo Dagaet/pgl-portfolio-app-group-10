@@ -31,7 +31,7 @@ const ModalComponent = () => {
           <Text style={[styles.textStyle, styles.buttonText]}>Qr Github</Text>
         </Pressable>
         <Pressable
-          style={[styles.button, styles.buttonDefault, styles.buttonOpen]}
+          style={[styles.button, styles.buttonOpen]}
           onPress={openModal2}
         >
           <Text style={[styles.textStyle, styles.buttonText]}>
@@ -116,27 +116,25 @@ const styles = StyleSheet.create({
     marginTop: 22
   },
   buttonContainer:{
-    flexDirection:"row"
+    flexDirection:"row",
+    justifyContent: "space-between"
   },
   button:{
-    borderRadius: 20,
+    borderRadius: 40,
     padding:10,
-    elevation:2
+    elevation:3,
+    margin: 2,
   },
   buttonText: {
     color: "white",
     fontWeight: "bold",
     textAlign: "center"
   },
-  buttonDefault: {
-    backgroundColor: "#ccc",
-    borderColor: "#999"
-  },
   buttonOpen: {
-    backgroundColor: "#F194FF"
+    backgroundColor: "blue"
   },
   buttonClose: {
-    backgroundColor:"#F194FF"
+    backgroundColor:"blue"
   },
   textStyle:{
     color: "white",
@@ -162,7 +160,8 @@ const styles = StyleSheet.create({
     bottom: 10
   },
   socialIconsContainer:{
-    flexDirection: "row"
+    flexDirection: "row",
+    justifyContent: "space-between"
   },
   iconImage:{
     bottom:10,
