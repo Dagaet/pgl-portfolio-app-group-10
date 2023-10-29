@@ -1,20 +1,30 @@
-import { ImageProps, StyleSheet, Text, View, Image, Modal, Pressable, TouchableOpacity, Linking } from "react-native";
+import {
+  ImageProps,
+  StyleSheet,
+  Text,
+  View,
+  Image,
+  Modal,
+  Pressable,
+  TouchableOpacity,
+  Linking,
+} from "react-native";
 import ModalComponent from "./ModalComponent";
 type CardProps = {
   personalImage: ImageProps;
   name: string;
-  iconsUrls: ImageProps[];
   info: string;
+  iconsUrls: ImageProps[];
 };
 const Card = (props: CardProps) => {
-  const { personalImage, name, iconsUrls, info,} = props;
+  const { personalImage, name, info, iconsUrls } = props;
   return (
     <View style={styles.cardContainer}>
       <View style={styles.cardTitleContainer}>
         <Image style={styles.personalImage} source={personalImage} />
         <Text style={styles.cardTitleText}>{name}</Text>
         <Text style={styles.textStyle}> {info} </Text>
-          <ModalComponent/>
+        <ModalComponent iconsUrls={iconsUrls} />
       </View>
     </View>
   );
@@ -25,7 +35,7 @@ const styles = StyleSheet.create({
     flex: 1,
     width: "90%",
     height: "90%",
-    flexDirection: "row", 
+    flexDirection: "row",
     justifyContent: "center",
     alignItems: "center",
     padding: 80,
@@ -58,41 +68,41 @@ const styles = StyleSheet.create({
   cardTitleText: {
     fontSize: 20,
     fontWeight: "bold",
-    paddingTop: 50
+    paddingTop: 50,
   },
   cardBodyText: {
     height: 120,
     margin: 10,
   },
-  buttonContainer:{
-    flexDirection:"row"
+  buttonContainer: {
+    flexDirection: "row",
   },
-  button:{
+  button: {
     borderRadius: 20,
-    padding:10,
-    elevation:2
+    padding: 10,
+    elevation: 2,
   },
   buttonOpen: {
-    backgroundColor: "#F194FF"
+    backgroundColor: "#F194FF",
   },
-  textStyle:{
+  textStyle: {
     color: "white",
     fontWeight: "bold",
     textAlign: "center",
     paddingTop: 40,
-    paddingBottom: 50
+    paddingBottom: 50,
   },
   buttonText: {
     color: "white",
     fontWeight: "bold",
-    textAlign: "center"
+    textAlign: "center",
   },
   buttonDefault: {
     backgroundColor: "#ccc",
-    borderColor: "#999"
+    borderColor: "#999",
   },
   buttonClose: {
-    backgroundColor:"#F194FF"
+    backgroundColor: "#F194FF",
   },
   modalView: {
     margin: 20,
@@ -112,19 +122,19 @@ const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
     justifyContent: "center",
-    alignItems:"center",
-    marginTop: 22
+    alignItems: "center",
+    marginTop: 22,
   },
-  socialIconsContainer:{
-    flexDirection: "row"
+  socialIconsContainer: {
+    flexDirection: "row",
   },
-  iconImage:{
-    bottom:10,
-    width: 50, 
-    height: 50, 
-    borderRadius: 50
+  iconImage: {
+    bottom: 10,
+    width: 50,
+    height: 50,
+    borderRadius: 50,
   },
-  qr:{
-    bottom: 10
-  }
+  qr: {
+    bottom: 10,
+  },
 });

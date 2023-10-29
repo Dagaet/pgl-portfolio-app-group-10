@@ -1,25 +1,40 @@
-import { StyleSheet, Modal , Text, TouchableOpacity, View, Image, Pressable, Linking } from "react-native";
+import {
+  StyleSheet,
+  Modal,
+  Text,
+  TouchableOpacity,
+  View,
+  Image,
+  Pressable,
+  Linking,
+  ImageProps,
+} from "react-native";
 import React, { useState } from "react";
 import QRCode from "react-native-qrcode-svg";
 
-const ModalComponent = () => {
-    const  [isModalVisible1, setModalVisible1] = useState(false);
-    const  [isModalVisible2, setModalVisible2] = useState(false);
-    const openModal1 = () => {
-        setModalVisible1(true);
-      };
-      const openModal2 = () => {
-        setModalVisible2(true);
-      };
-      const closeModal1 = () => {
-        setModalVisible1(false);
-      };
-      const closeModal2 = () => {
-        setModalVisible2(false);
-      };
-      const openLink = (url: string) => {
-        Linking.openURL(url);
-      }
+type ModalProps = {
+  iconsUrls: ImageProps[];
+};
+
+const ModalComponent = (props: ModalProps) => {
+  const { iconsUrls } = props;
+  const [isModalVisible1, setModalVisible1] = useState(false);
+  const [isModalVisible2, setModalVisible2] = useState(false);
+  const openModal1 = () => {
+    setModalVisible1(true);
+  };
+  const openModal2 = () => {
+    setModalVisible2(true);
+  };
+  const closeModal1 = () => {
+    setModalVisible1(false);
+  };
+  const closeModal2 = () => {
+    setModalVisible2(false);
+  };
+  const openLink = (url: string) => {
+    Linking.openURL(url);
+  };
 
   return (
     <>
@@ -112,34 +127,34 @@ const styles = StyleSheet.create({
   centeredView: {
     flex: 1,
     justifyContent: "center",
-    alignItems:"center",
-    marginTop: 22
+    alignItems: "center",
+    marginTop: 22,
   },
-  buttonContainer:{
-    flexDirection:"row",
-    justifyContent: "space-between"
+  buttonContainer: {
+    flexDirection: "row",
+    justifyContent: "space-between",
   },
-  button:{
+  button: {
     borderRadius: 40,
-    padding:10,
-    elevation:3,
+    padding: 10,
+    elevation: 3,
     margin: 2,
   },
   buttonText: {
     color: "white",
     fontWeight: "bold",
-    textAlign: "center"
+    textAlign: "center",
   },
   buttonOpen: {
-    backgroundColor: "blue"
+    backgroundColor: "blue",
   },
   buttonClose: {
-    backgroundColor:"blue"
+    backgroundColor: "blue",
   },
-  textStyle:{
+  textStyle: {
     color: "white",
     fontWeight: "bold",
-    textAlign: "center"
+    textAlign: "center",
   },
   modalView: {
     margin: 20,
@@ -156,17 +171,17 @@ const styles = StyleSheet.create({
     shadowRadius: 4,
     elevation: 5,
   },
-  qr:{
-    bottom: 10
+  qr: {
+    bottom: 10,
   },
-  socialIconsContainer:{
+  socialIconsContainer: {
     flexDirection: "row",
-    justifyContent: "space-between"
+    justifyContent: "space-between",
   },
-  iconImage:{
-    bottom:10,
-    width: 50, 
-    height: 50, 
-    borderRadius: 50
+  iconImage: {
+    bottom: 10,
+    width: 50,
+    height: 50,
+    borderRadius: 50,
   },
 });
