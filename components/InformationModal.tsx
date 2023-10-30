@@ -3,10 +3,11 @@ import React, { useState } from "react";
 
 type InformationModalData = {
   informationData: string[];
+  isEnabled: boolean;
 };
 
 const InformationModal = (props: InformationModalData) => {
-  const { informationData } = props;
+  const { informationData, isEnabled } = props;
   const [isModalVisible, setModalVisible] = useState(false);
   const openModal1 = () => {
     setModalVisible(true);
@@ -33,7 +34,7 @@ const InformationModal = (props: InformationModalData) => {
         onRequestClose={closeModal1}
       >
         <View style={styles.centeredView}>
-          <View style={styles.modalView}>
+          <View style={[styles.modalView, {backgroundColor: isEnabled ? "white" : "#859699"}]}>
             <Text style={styles.modalHeader}>Cosas que me gustan</Text>
             <View style={styles.informationContainer}>
               {informationData.map((data, key) => (

@@ -4,11 +4,11 @@ import Header from "./components/Header";
 import MainPage from "./components/MainPage";
 
 export default function App() {
-  const [displayMyQR, setDisplayMyQR] = useState(true);
+  const [isEnabled, setIsEnabled] = useState(false);
   return (
     <View style={styles.container}>
-      <Header />
-      <MainPage />
+      <Header isEnabled={isEnabled} setIsEnabled={setIsEnabled}/>
+      <MainPage isEnabled={isEnabled}/>
     </View>
   );
 }

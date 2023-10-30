@@ -16,18 +16,19 @@ type CardProps = {
   iconsMedia: ImageProps[];
   qrURL: string;
   informationData: string[];
+  isEnabled: boolean;
 };
 
 const Card = (props: CardProps) => {
-  const { personalImage, name, info, iconsUrls, iconsMedia, qrURL, informationData } = props;
+  const { personalImage, name, info, iconsUrls, iconsMedia, qrURL, informationData, isEnabled } = props;
   return (
-    <View style={styles.cardContainer}>
+    <View style={[styles.cardContainer, {backgroundColor: isEnabled ? "#D7D0C8" : "#607471"}]}>
       <View style={styles.cardTitleContainer}>
         <Image style={styles.personalImage} source={personalImage} />
         <Text style={styles.cardTitleText}>{name}</Text>
         <Text style={styles.textStyle}> {info} </Text>
-        <ModalComponent iconsUrls={iconsUrls} iconsMedia={iconsMedia} qrURL={qrURL}/>
-        <InformationModal informationData={informationData}/>
+        <ModalComponent isEnabled={isEnabled} iconsUrls={iconsUrls} iconsMedia={iconsMedia} qrURL={qrURL}/>
+        <InformationModal isEnabled={isEnabled} informationData={informationData}/>
       </View>
     </View>
   );
@@ -43,7 +44,8 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     padding: 80,
-    backgroundColor: "#D7D0C8",
+    /* backgroundColor: "#D7D0C8", //Nice */
+    backgroundColor: "#607471",
     borderRadius: 40,
     marginVertical: 20,
     marginHorizontal: 15,

@@ -2,10 +2,15 @@ import { StyleSheet, View } from "react-native";
 import React from "react";
 import ScrollviewComponent from "./ScrollviewComponent";
 
-const MainPage = () => {
+type MainPageProps = {
+  isEnabled: boolean
+}
+
+const MainPage = (props: MainPageProps) => {
+  const {isEnabled} = props
   return (
-    <View style={styles.bodystails}>
-      <ScrollviewComponent />
+    <View style={[styles.bodystails, {backgroundColor: isEnabled ? "white" : "#5E6472"}]}>
+      <ScrollviewComponent isEnabled={isEnabled}/>
     </View>
   );
 };
@@ -15,7 +20,6 @@ export default MainPage;
 const styles = StyleSheet.create({
   bodystails: {
     width: "100%",
-    backgroundColor: "#FCF7FF",
     alignItems: "center",
     justifyContent: "space-between",
     height: "90%",

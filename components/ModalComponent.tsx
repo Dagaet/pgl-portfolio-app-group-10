@@ -14,10 +14,11 @@ type ModalProps = {
   iconsUrls: string[];
   iconsMedia: ImageProps[];
   qrURL: string;
+  isEnabled: boolean;
 };
 
 const ModalComponent = (props: ModalProps) => {
-  const { iconsUrls, iconsMedia, qrURL } = props;
+  const { iconsUrls, iconsMedia, qrURL, isEnabled } = props;
   const [isModalVisible1, setModalVisible1] = useState(false);
   const [isModalVisible2, setModalVisible2] = useState(false);
   const openModal1 = () => {
@@ -58,7 +59,7 @@ const ModalComponent = (props: ModalProps) => {
         onRequestClose={closeModal1}
       >
         <View style={styles.centeredView}>
-          <View style={styles.modalView}>
+          <View style={[styles.modalView, {backgroundColor: isEnabled ? "white" : "#859699"}]}>
             <View style={styles.qr}>
               <QrCode qrURL={qrURL} />
             </View>
@@ -78,7 +79,7 @@ const ModalComponent = (props: ModalProps) => {
         onRequestClose={closeModal2}
       >
         <View style={styles.centeredView}>
-          <View style={styles.modalView}>
+          <View style={[styles.modalView, {backgroundColor: isEnabled ? "white" : "#859699"}]}>
             <View style={styles.socialIconsContainer}>
               <View style={styles.sociaMediaIconsContainer}>
                 {iconsMedia.map((iconsMedia, key) => (
@@ -147,7 +148,6 @@ const styles = StyleSheet.create({
   },
   modalView: {
     margin: 20,
-    backgroundColor: "white",
     borderRadius: 50,
     height: 210,
     width: 260,

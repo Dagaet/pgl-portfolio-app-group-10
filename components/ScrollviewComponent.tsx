@@ -3,8 +3,12 @@ import React from 'react'
 import { peopleData, PersonalData } from '../data/InformationData'
 import Card from './Card'
 
-const ScrollviewComponent = () => {
+type ScrollviewComponentProps = {
+  isEnabled: boolean
+}
 
+const ScrollviewComponent = (props: ScrollviewComponentProps) => {
+  const {isEnabled} = props
   return (
         <ScrollView horizontal={true} centerContent={true} decelerationRate={0} snapToInterval={400}>
             {
@@ -18,6 +22,7 @@ const ScrollviewComponent = () => {
                     key={index}
                     qrURL={card.qrURL}
                     informationData={card.informationData}
+                    isEnabled={isEnabled}
                   />
                 )
             }
