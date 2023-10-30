@@ -12,18 +12,19 @@ type CardProps = {
   name: string;
   info: string;
   iconsUrls: string[];
+  iconsMedia: ImageProps[];
   qrURL: string;
 };
 
 const Card = (props: CardProps) => {
-  const { personalImage, name, info, iconsUrls, qrURL } = props;
+  const { personalImage, name, info, iconsUrls, iconsMedia, qrURL } = props;
   return (
     <View style={styles.cardContainer}>
       <View style={styles.cardTitleContainer}>
         <Image style={styles.personalImage} source={personalImage} />
         <Text style={styles.cardTitleText}>{name}</Text>
         <Text style={styles.textStyle}> {info} </Text>
-        <ModalComponent iconsUrls={iconsUrls} qrURL={qrURL}/>
+        <ModalComponent iconsUrls={iconsUrls} iconsMedia={iconsMedia} qrURL={qrURL}/>
         <Text style={styles.modalTecnologies}>Prueba</Text>
       </View>
     </View>

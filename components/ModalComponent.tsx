@@ -4,17 +4,20 @@ import {
   Text,
   View,
   Pressable,
+  Image,
+  ImageProps,
 } from "react-native";
 import React, { useState } from "react";
 import QrCode from "./QrCode";
 
 type ModalProps = {
   iconsUrls: string[];
+  iconsMedia: ImageProps[];
   qrURL: string;
 };
 
 const ModalComponent = (props: ModalProps) => {
-  const { iconsUrls, qrURL } = props;
+  const { iconsUrls, iconsMedia, qrURL } = props;
   const [isModalVisible1, setModalVisible1] = useState(false);
   const [isModalVisible2, setModalVisible2] = useState(false);
   const openModal1 = () => {
@@ -57,7 +60,7 @@ const ModalComponent = (props: ModalProps) => {
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <View style={styles.qr}>
-              <QrCode qrURL={qrURL}/>
+              <QrCode qrURL={qrURL} />
             </View>
             <Pressable
               style={[styles.button, styles.buttonClose]}
@@ -77,9 +80,22 @@ const ModalComponent = (props: ModalProps) => {
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <View style={styles.socialIconsContainer}>
-              {iconsUrls.map((iconsUrls, key) => (
-                <Text style={styles.infoSocial} key={key}>{iconsUrls}</Text>
-              ))}
+              <View style={styles.sociaMediaIconsContainer}>
+                {iconsMedia.map((iconsMedia, key) => (
+                  <Image
+                    style={styles.socialMediaIcons}
+                    source={iconsMedia}
+                    key={key}
+                  />
+                ))}
+              </View>
+              <View style={styles.socialMediaInfoSocial}>
+                {iconsUrls.map((iconsUrls, key) => (
+                  <Text style={styles.infoSocial} key={key}>
+                    {iconsUrls}
+                  </Text>
+                ))}
+              </View>
             </View>
             <Pressable
               style={[styles.button, styles.buttonClose]}
@@ -132,8 +148,10 @@ const styles = StyleSheet.create({
   modalView: {
     margin: 20,
     backgroundColor: "white",
-    borderRadius: 20,
-    padding: 35,
+    borderRadius: 50,
+    height: 210,
+    width: 260,
+    padding: 30,
     alignItems: "center",
     shadowColor: "#000",
     shadowOffset: {
@@ -148,15 +166,27 @@ const styles = StyleSheet.create({
     bottom: 10,
   },
   socialIconsContainer: {
-    flexDirection: "column",
-  },
-  iconImage: {
-    bottom: 10,
-    width: 50,
-    height: 50,
-    borderRadius: 50,
+    flex: 1,
+    flexDirection: "row",
+    flexWrap: "wrap",
+    alignItems: "flex-start",
   },
   infoSocial: {
-    height: 30
+    flexDirection: "column",
+    marginBottom: 10
+  },
+  socialMediaIcons: {
+    maxWidth: 20,
+    flexDirection: "column",
+    height: 20,
+    width: 20,
+    borderRadius: 50,
+    marginBottom: 10
+  },
+  sociaMediaIconsContainer: {
+    width: '20%',
+  },
+  socialMediaInfoSocial: {
+    width: '80%'
   }
 });
