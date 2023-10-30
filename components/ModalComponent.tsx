@@ -2,22 +2,19 @@ import {
   StyleSheet,
   Modal,
   Text,
-  TouchableOpacity,
   View,
-  Image,
   Pressable,
-  Linking,
-  ImageProps,
 } from "react-native";
 import React, { useState } from "react";
-import QRCode from "react-native-qrcode-svg";
+import QrCode from "./QrCode";
 
 type ModalProps = {
-  iconsUrls: ImageProps[];
+  iconsUrls: string[];
+  qrURL: string;
 };
 
 const ModalComponent = (props: ModalProps) => {
-  const { iconsUrls } = props;
+  const { iconsUrls, qrURL } = props;
   const [isModalVisible1, setModalVisible1] = useState(false);
   const [isModalVisible2, setModalVisible2] = useState(false);
   const openModal1 = () => {
@@ -31,9 +28,6 @@ const ModalComponent = (props: ModalProps) => {
   };
   const closeModal2 = () => {
     setModalVisible2(false);
-  };
-  const openLink = (url: string) => {
-    Linking.openURL(url);
   };
 
   return (
@@ -63,7 +57,7 @@ const ModalComponent = (props: ModalProps) => {
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <View style={styles.qr}>
-              <QRCode />
+              <QrCode qrURL={qrURL}/>
             </View>
             <Pressable
               style={[styles.button, styles.buttonClose]}
@@ -83,30 +77,9 @@ const ModalComponent = (props: ModalProps) => {
         <View style={styles.centeredView}>
           <View style={styles.modalView}>
             <View style={styles.socialIconsContainer}>
-              <TouchableOpacity
-                onPress={() => openLink("https://www.instagram.com/")}
-              >
-                <Image
-                  style={styles.iconImage}
-                  source={require("../assets/logoInsta.png")}
-                />
-              </TouchableOpacity>
-              <TouchableOpacity
-                onPress={() => openLink("https://twitter.com/home?lang=es")}
-              >
-                <Image
-                  style={styles.iconImage}
-                  source={require("../assets/logoTwitter.png")}
-                />
-              </TouchableOpacity>
-              <TouchableOpacity
-                onPress={() => openLink("https://www.linkedin.com/feed/")}
-              >
-                <Image
-                  style={styles.iconImage}
-                  source={require("../assets/logolinkeding.png")}
-                />
-              </TouchableOpacity>
+              {iconsUrls.map((iconsUrls, key) => (
+                <Text style={styles.infoSocial} key={key}>{iconsUrls}</Text>
+              ))}
             </View>
             <Pressable
               style={[styles.button, styles.buttonClose]}
@@ -175,8 +148,7 @@ const styles = StyleSheet.create({
     bottom: 10,
   },
   socialIconsContainer: {
-    flexDirection: "row",
-    justifyContent: "space-between",
+    flexDirection: "column",
   },
   iconImage: {
     bottom: 10,
@@ -184,4 +156,7 @@ const styles = StyleSheet.create({
     height: 50,
     borderRadius: 50,
   },
+  infoSocial: {
+    height: 30
+  }
 });

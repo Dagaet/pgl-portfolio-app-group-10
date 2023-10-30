@@ -15,6 +15,7 @@ const ScrollviewComponent = () => {
                     iconsUrls={card.iconsUrls}
                     info={card.info}
                     key={index}
+                    qrURL={card.qrURL}
                   />
                 )
             }

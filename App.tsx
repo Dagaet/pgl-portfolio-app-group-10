@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { StyleSheet, View } from "react-native";
-import QRCode from "react-native-qrcode-svg";
 import Header from "./components/Header";
 import MainPage from "./components/MainPage";
 
@@ -8,14 +7,8 @@ export default function App() {
   const [displayMyQR, setDisplayMyQR] = useState(true);
   return (
     <View style={styles.container}>
-      <Header/>
-      {displayMyQR ? (
-        <MainPage/>
-      ) : (
-        <View style={styles.qrStyles}>
-          <QRCode/>
-        </View>    
-      )}
+      <Header />
+      <MainPage />
     </View>
   );
 }
@@ -34,6 +27,6 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "space-between",
     height: "85%",
-    paddingVertical: "50%"
+    paddingVertical: "50%",
   },
 });

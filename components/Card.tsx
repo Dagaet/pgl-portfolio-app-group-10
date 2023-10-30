@@ -4,32 +4,33 @@ import {
   Text,
   View,
   Image,
-  Modal,
-  Pressable,
-  TouchableOpacity,
-  Linking,
 } from "react-native";
 import ModalComponent from "./ModalComponent";
+
 type CardProps = {
   personalImage: ImageProps;
   name: string;
   info: string;
-  iconsUrls: ImageProps[];
+  iconsUrls: string[];
+  qrURL: string;
 };
+
 const Card = (props: CardProps) => {
-  const { personalImage, name, info, iconsUrls } = props;
+  const { personalImage, name, info, iconsUrls, qrURL } = props;
   return (
     <View style={styles.cardContainer}>
       <View style={styles.cardTitleContainer}>
         <Image style={styles.personalImage} source={personalImage} />
         <Text style={styles.cardTitleText}>{name}</Text>
         <Text style={styles.textStyle}> {info} </Text>
-        <ModalComponent iconsUrls={iconsUrls} />
+        <ModalComponent iconsUrls={iconsUrls} qrURL={qrURL}/>
+        <Text style={styles.modalTecnologies}>Prueba</Text>
       </View>
     </View>
   );
 };
 export default Card;
+
 const styles = StyleSheet.create({
   cardContainer: {
     flex: 1,
@@ -41,7 +42,7 @@ const styles = StyleSheet.create({
     padding: 80,
     backgroundColor: "#D7D0C8",
     borderRadius: 40,
-    marginVertical: 30,
+    marginVertical: 20,
     marginHorizontal: 15,
     borderWidth: 1,
     shadowColor: "#000",
@@ -54,21 +55,21 @@ const styles = StyleSheet.create({
     elevation: 25,
   },
   personalImage: {
-    height: 200,
-    width: 200,
-    borderRadius: 100,
+    height: 150,
+    width: 150,
+    borderRadius: 50,
   },
   cardTitleContainer: {
-    height: 300,
+    height: "100%",
     flexDirection: "column",
     alignItems: "center",
-    justifyContent: "space-around",
+    justifyContent: "center",
     width: "100%",
   },
   cardTitleText: {
-    fontSize: 20,
+    fontSize: 22,
     fontWeight: "bold",
-    paddingTop: 50,
+    paddingTop: 10,
   },
   cardBodyText: {
     height: 120,
@@ -86,11 +87,11 @@ const styles = StyleSheet.create({
     backgroundColor: "#F194FF",
   },
   textStyle: {
-    color: "white",
-    fontWeight: "bold",
+    color: "black",
     textAlign: "center",
-    paddingTop: 40,
-    paddingBottom: 50,
+    marginTop: 20,
+    marginBottom: 20,
+    maxWidth: 200
   },
   buttonText: {
     color: "white",
@@ -137,4 +138,7 @@ const styles = StyleSheet.create({
   qr: {
     bottom: 10,
   },
+  modalTecnologies: {
+    marginTop: 30
+  }
 });
