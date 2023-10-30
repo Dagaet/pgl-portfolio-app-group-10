@@ -6,6 +6,7 @@ import {
   Image,
 } from "react-native";
 import ModalComponent from "./ModalComponent";
+import InformationModal from "./InformationModal";
 
 type CardProps = {
   personalImage: ImageProps;
@@ -14,10 +15,11 @@ type CardProps = {
   iconsUrls: string[];
   iconsMedia: ImageProps[];
   qrURL: string;
+  informationData: string[];
 };
 
 const Card = (props: CardProps) => {
-  const { personalImage, name, info, iconsUrls, iconsMedia, qrURL } = props;
+  const { personalImage, name, info, iconsUrls, iconsMedia, qrURL, informationData } = props;
   return (
     <View style={styles.cardContainer}>
       <View style={styles.cardTitleContainer}>
@@ -25,7 +27,7 @@ const Card = (props: CardProps) => {
         <Text style={styles.cardTitleText}>{name}</Text>
         <Text style={styles.textStyle}> {info} </Text>
         <ModalComponent iconsUrls={iconsUrls} iconsMedia={iconsMedia} qrURL={qrURL}/>
-        <Text style={styles.modalTecnologies}>Prueba</Text>
+        <InformationModal informationData={informationData}/>
       </View>
     </View>
   );
@@ -139,7 +141,4 @@ const styles = StyleSheet.create({
   qr: {
     bottom: 10,
   },
-  modalTecnologies: {
-    marginTop: 30
-  }
 });

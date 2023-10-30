@@ -7,6 +7,7 @@ export type PersonalData = {
     iconsMedia: ImageProps[],
     info: string,
     qrURL: string,
+    informationData: string[]
 }
 export const peopleData: PersonalData[] = [
     {   
@@ -16,7 +17,8 @@ export const peopleData: PersonalData[] = [
         iconsUrls: ["@Dagaet", "@TwitterDeSaúl", "Saúl Arteaga Noda"],
         iconsMedia: [require('../assets/logoInsta.png'), require('../assets/logoTwitter.png'), require('../assets/logolinkeding.png')],
         info: 'Un pive de La Gomera que está estudiando en Tenerife',
-        qrURL: 'https://github.com/Dagaet'
+        qrURL: 'https://github.com/Dagaet',
+        informationData: ["Metal Gear Solid", "Loh Cocheh", "Lah Muhere", "Loh Kamioneh"]
     },
     {
         personalImage: require('../assets/Profile.jpg'),
@@ -24,6 +26,7 @@ export const peopleData: PersonalData[] = [
         iconsUrls: ["@GabrielDiazZapata", "@TwitterDeGabri", "Gabriel Diaz Zapata"],
         iconsMedia: [require('../assets/logoInsta.png'), require('../assets/logoTwitter.png'), require('../assets/logolinkeding.png')],
         info: 'Un pive de Tenerife yoquese',
-        qrURL: 'https://github.com/GabrielDiazZapata'
+        qrURL: 'https://github.com/GabrielDiazZapata',
+        informationData: ["Er Furbo", "Er Jimnazio", "Acé depoté", "Condusi el coxe"]
     }
 ]
