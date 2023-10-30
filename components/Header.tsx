@@ -1,3 +1,4 @@
+import Ionicons from '@expo/vector-icons/Ionicons'
 import {
   StyleSheet,
   Text,
@@ -14,9 +15,10 @@ const Header = (props: HeaderProps) => {
   const {isEnabled, setIsEnabled} = props
   const toggleSwitch = () => setIsEnabled((previousState:boolean) => !previousState);
   return (
-    <View style={styles.topContainer}>
+    <View style={[styles.topContainer, {backgroundColor: isEnabled ? "grey" : "#383A42"}]}>
       <View style={styles.subContainer}>
         <Text style={styles.titleHeader}>My Portfolio App</Text>
+        <Ionicons style={styles.headerIcons} name={isEnabled ? "sunny-outline" : "moon-outline"} size={30}/>
         <Switch
           style ={styles.switchButton}
           trackColor={{ false: "#767577", true: "#81b0ff" }}
@@ -53,5 +55,9 @@ const styles = StyleSheet.create({
   },
   switchButton: {
     marginRight: 20, 
+  },
+  headerIcons: {
+    verticalAlign: "middle",
+    marginLeft: 60
   }
 });
